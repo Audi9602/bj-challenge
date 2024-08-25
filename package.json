@@ -1,0 +1,17 @@
+{
+  "name": "bajaj",
+  "version": "1.0.0",
+  "description": "This is th solution for the challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Audrija",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "https": "^1.0.0"
+  }
+}
