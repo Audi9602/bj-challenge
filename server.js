@@ -8,13 +8,13 @@ const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-   
-// Function to find the highest lowercase letter
+//1.--
 function findHighestLowercase(alphabets) {
   const lowercases = alphabets.filter(char => char.toLowerCase() === char);
   return lowercases.length > 0 ? [lowercases[lowercases.length - 1]] : [];
 }
 
+//2.--
 app.get('/bfhl', (req, res) => {
     res.render("index", { response: null }); 
 });
@@ -25,12 +25,9 @@ app.post('/bfhl', (req, res) => {
   if (!jsonData) {
     return res.status(400).json({ message: 'Something seems wrong!' });
   }
-
-  const parsedData = JSON.parse(jsonData); // Parse the data as JSON
-
+  const parsedData = JSON.parse(jsonData); 
   const numbers = parsedData.filter(item => !isNaN(item));
   const alphabets = parsedData.filter(item => isNaN(item));
-
   const highestLowercase = findHighestLowercase(alphabets);
 
   const response = {
@@ -42,11 +39,10 @@ app.post('/bfhl', (req, res) => {
     alphabets,
     highest_lowercase_alphabet: highestLowercase,
   };
-
-  // Render the response on the HTML page
+  //EJS render!
   res.render('index', { response });
 });
-
+//check-test!
 app.listen(3000, function(){
     console.log("server running on port 3000");
 });
